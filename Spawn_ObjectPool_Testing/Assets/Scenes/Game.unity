@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5853627515654518814, guid: f60cab5788578c84f884855670b76590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5853627515654518814, guid: f60cab5788578c84f884855670b76590, type: 3}
       propertyPath: m_LocalPosition.z
@@ -452,6 +452,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5853627515654518814, guid: f60cab5788578c84f884855670b76590, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787012065921356799, guid: f60cab5788578c84f884855670b76590, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787012065921356799, guid: f60cab5788578c84f884855670b76590, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787012065921356799, guid: f60cab5788578c84f884855670b76590, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
