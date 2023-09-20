@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _moveSpeed;
 
     private Rigidbody _rb;
-    [SerializeField] SpriteRenderer _sr;
+    //For 2D sprite
+    //[SerializeField] SpriteRenderer _sr;
 
     private void Start()
     {
@@ -28,13 +29,14 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3(x, 0, y);
         _rb.velocity = moveDir * _moveSpeed;
 
-        if (x != 0 && x < 0)
-        {
-            _sr.flipX = true;
-        }
-        else if (x != 0 && x > 0)
-        {
-            _sr.flipX = false;
-        }
+        //For 2D sprite
+        //if (x != 0 && x < 0)
+        //{
+        //    _sr.flipX = true;
+        //}
+        //else if (x != 0 && x > 0)
+        //{
+        //    _sr.flipX = false;
+        //}
     }
 }
