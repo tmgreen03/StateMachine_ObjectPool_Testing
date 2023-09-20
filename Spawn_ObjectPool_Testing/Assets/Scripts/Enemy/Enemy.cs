@@ -18,8 +18,13 @@ public class Enemy : MonoBehaviour, IDamagable, IMoveable, ITriggerCheckable
     public bool IsWithinAttackRange { get; set; }
     public bool IsAggroed { get; set; }
 
+    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
+    public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
+
     private void Awake()
     {
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
+
         StateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, StateMachine);
@@ -32,6 +37,8 @@ public class Enemy : MonoBehaviour, IDamagable, IMoveable, ITriggerCheckable
         CurrentHealth = MaxHealth;
 
         RB = GetComponent<Rigidbody>();
+
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(IdleState);
     }
