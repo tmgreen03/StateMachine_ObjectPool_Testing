@@ -13,16 +13,25 @@ public class EnemyAttackMelee : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        Debug.Log("Melee Attack State");
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        Debug.Log("Leaving Melee Attack State");
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+
+        _enemy.Move(Vector3.zero);
+
+        if (!_enemy.IsWithinAttackRange)
+        {
+            _enemy.StateMachine.ChangeState(_enemy.ChaseState);
+        }
     }
 
     public override void DoPhysicsUpdateLogic()

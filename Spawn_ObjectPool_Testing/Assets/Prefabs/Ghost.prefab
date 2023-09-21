@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7493199853900809468}
   - component: {fileID: 7493199853900809408}
   - component: {fileID: 7493199853900809469}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7493199854226349644}
   - component: {fileID: 7493199854226349651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyAggro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 7493199855445744002}
   - component: {fileID: 7493199855445744001}
   - component: {fileID: 7493199855445744000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

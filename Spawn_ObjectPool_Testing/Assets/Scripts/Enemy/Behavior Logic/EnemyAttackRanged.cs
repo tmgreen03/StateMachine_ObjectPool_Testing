@@ -5,14 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Attack-Ranged", menuName = "Enemy Logic/ Attack Logic/ Ranged")]
 public class EnemyAttackRanged : EnemyAttackSOBase
 {
-    [SerializeField] private Rigidbody _bulletPrefab;
-    [SerializeField] private float _timeBetweenShots = 2f;
-    [SerializeField] private float _timeTillExit = 3f;
-    [SerializeField] private float _distanceToCountExit = 3f;
-    [SerializeField] private float _bulletSpeed = 10f;
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private float _bulletSpeed;
+    [SerializeField] private float _fireRate = 1f;
 
     private float _timer;
-    private float _exitTimer;
 
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
@@ -22,11 +19,15 @@ public class EnemyAttackRanged : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        Debug.Log("Ranged Attack State");
+
+        _timer = _fireRate;
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        Debug.Log("Leaving Ranged Attack State");
     }
 
     public override void DoFrameUpdateLogic()
@@ -35,24 +36,17 @@ public class EnemyAttackRanged : EnemyAttackSOBase
 
         _enemy.Move(Vector3.zero);
 
-        if (_timer > _timeBetweenShots)
+        //RANGED ATTACK LOGIC
+        _timer -= Time.deltaTime;
+        if (_timer <= 0)
         {
-            _timer = 0f;
-
-            Vector3 dir = (_playerTransform.position - _enemy.transform.position).normalized;
-
-            Rigidbody bullet = GameObject.Instantiate(_bulletPrefab, _enemy.transform.position, Quaternion.identity);
-            bullet.velocity = dir * _bulletSpeed;
+            Fire();
+            _timer = _fireRate;
         }
 
-        if (Vector3.Distance(_playerTransform.position, _enemy.transform.position) > _distanceToCountExit)
+        if (!_enemy.IsWithinAttackRange)
         {
-            _exitTimer += Time.deltaTime;
-
-            if (_exitTimer > _timeTillExit)
-            {
-                _enemy.StateMachine.ChangeState(_enemy.ChaseState);
-            }
+            _enemy.StateMachine.ChangeState(_enemy.ChaseState);
         }
     }
 
@@ -70,4 +64,24 @@ public class EnemyAttackRanged : EnemyAttackSOBase
     {
         base.ResetValues();
     }
+
+    private void Fire()
+    {
+        if (_playerTransform != null)
+        {
+            // Calculate the direction to the player.
+            Vector3 directionToPlayer = _playerTransform.transform.position - _enemy.transform.position;
+            directionToPlayer.Normalize();
+
+            // Instantiate a new bullet.
+            GameObject bullet = Instantiate(_bulletPrefab, _enemy.transform.position, Quaternion.identity);
+
+            // Get the Rigidbody component of the bullet.
+            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+
+            // Apply a force to the bullet in the direction of the player.
+            bulletRigidbody.velocity = directionToPlayer * _bulletSpeed; // Adjust bulletSpeed as needed.
+        }
+    }
+
 }

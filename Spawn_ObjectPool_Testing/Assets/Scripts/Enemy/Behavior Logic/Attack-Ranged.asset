@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4869f6f29e287134cabb8dc2a92f1a96, type: 3}
   m_Name: Attack-Ranged
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: -1643035653536662124, guid: 2d76b9362354b8f49980ae685c496f71, type: 3}
-  _timeBetweenShots: 2
-  _timeTillExit: 3
-  _distanceToCountExit: 3
-  _bulletSpeed: 10
+  _bulletPrefab: {fileID: 7052934498559396263, guid: 2d76b9362354b8f49980ae685c496f71, type: 3}
+  _bulletSpeed: 15
+  _fireRate: 1
