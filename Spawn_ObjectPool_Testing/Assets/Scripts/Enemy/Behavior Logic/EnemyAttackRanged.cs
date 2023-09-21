@@ -36,7 +36,7 @@ public class EnemyAttackRanged : EnemyAttackSOBase
 
         _enemy.Move(Vector3.zero);
 
-        //RANGED ATTACK
+        //RANGED ATTACK CODE HERE
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
@@ -44,6 +44,7 @@ public class EnemyAttackRanged : EnemyAttackSOBase
             _timer = _fireRate;
         }
 
+        //EXIT STATE
         if (!_enemy.IsWithinAttackRange)
         {
             _enemy.StateMachine.ChangeState(_enemy.ChaseState);

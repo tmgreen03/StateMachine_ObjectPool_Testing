@@ -454,10 +454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
-    - target: {fileID: 2602758040852630902, guid: 20d6f0f8f416b8d4c90cfdb890020604, type: 3}
-      propertyPath: <MoveSpeed>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20d6f0f8f416b8d4c90cfdb890020604, type: 3}
 --- !u!1001 &4418215032212653664

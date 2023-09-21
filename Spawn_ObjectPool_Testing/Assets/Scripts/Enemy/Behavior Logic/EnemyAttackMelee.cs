@@ -26,8 +26,11 @@ public class EnemyAttackMelee : EnemyAttackSOBase
     {
         base.DoFrameUpdateLogic();
 
+
+        //MELEE ATTACK CODE HERE
         _enemy.Move(Vector3.zero);
 
+        //EXIT STATE
         if (!_enemy.IsWithinAttackRange)
         {
             _enemy.StateMachine.ChangeState(_enemy.ChaseState);

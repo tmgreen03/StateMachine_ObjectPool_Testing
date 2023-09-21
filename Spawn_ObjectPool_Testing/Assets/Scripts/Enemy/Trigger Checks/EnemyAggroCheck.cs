@@ -14,9 +14,9 @@ public class EnemyAggroCheck : MonoBehaviour
         _enemy = GetComponentInParent<Enemy>();
     }
 
-    //Adding this because there is a potential for enemies to lose/gain aggro in the future. 
     private void Start()
     {
+        //Enemies will always start off aggroed, this is subject to change if enemies lose aggro. 
         _enemy.SetAggroStatus(true);
     }
 
