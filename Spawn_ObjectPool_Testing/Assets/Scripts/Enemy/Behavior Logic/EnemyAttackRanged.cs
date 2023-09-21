@@ -36,7 +36,7 @@ public class EnemyAttackRanged : EnemyAttackSOBase
 
         _enemy.Move(Vector3.zero);
 
-        //RANGED ATTACK LOGIC
+        //RANGED ATTACK
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
